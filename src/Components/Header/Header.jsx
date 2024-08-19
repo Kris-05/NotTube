@@ -19,7 +19,7 @@ const Header = ({handleToggleSidebar}) => {
         </button>
       </form>
 
-      <div class="header-icons">
+      <div className="header-icons">
         <MdNotifications size={28}/>
         <MdApps size={28}/>
         <img src="https://img.lovepik.com/element/40143/1122.png_1200.png" alt="Avatar"/>
