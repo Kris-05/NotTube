@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import './_category.scss'
+import { useDispatch } from 'react-redux'
+import { getPopularVideos, getVideoByCategory } from '../../redux/actions/videos.action'
 
 const keywords = [
   'All',
@@ -10,30 +12,32 @@ const keywords = [
   'React Native',
   'Use of API',
   'Redux',
+  'Anime',
+  'One Piece',
+  'Bleach',
   'Music',
   'Algorithm Art',
-  'Guitar',
+  'Bollywood Songs',
   'Tamil Songs',
   'Coding',
-  'Cricket',
-  'Football',
-  'Real Madrid',
-  'Redux',
-  'Music',
-  'Algorithm Art',
-  'Guitar',
-  'Tamil Songs',
-  'Coding',
-  'Cricket',
-  'Football',
+  'Chess',
+  'Sports',
   'Real Madrid',
 ]
 
 const CategoryBar = () => {
 
   const [activeElement, setActiveElement] = useState('All')
-  const handleClick = value => {
+
+  const dispatch = useDispatch()
+
+  const handleClick = (value) => {
     setActiveElement(value)
+    // console.log(value)
+    if(value === 'All')
+      dispatch(getPopularVideos())
+    else
+      dispatch(getVideoByCategory(value))
   }
   return (
     <div className='category-bar'>
