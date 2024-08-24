@@ -5,10 +5,12 @@ import Header from './Components/Header/Header';
 import Sidebar from './Components/Sidebar/Sidebar';
 import HomeScreen from './Screens/HomeScreen/HomeScreen';
 import LoginScreen from './Screens/LoginScreen/LoginScreen';
+import WatchScreen from './Screens/WatchScreen/WatchScreen';
 
 import { Container } from 'react-bootstrap';
 import './_app.scss';
 import { useSelector } from 'react-redux';
+
 
 function Layout({ children }) {
   const [sidebar, toggleSidebar] = useState(false);
@@ -42,6 +44,7 @@ function App() {
       <Route path='/' element={<Layout><HomeScreen /></Layout>} />
       <Route path='/auth' element={<LoginScreen />} />
       <Route path='/search' element={<Layout><h1>search me</h1></Layout>} />
+      <Route path='/watch/:id' element={<Layout><WatchScreen/></Layout>} />
       <Route path='*' element={<Navigate to='/'/>} />
     </Routes>
   );
